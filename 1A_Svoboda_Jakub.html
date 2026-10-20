@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Předepsaná práce z matematiky 1 – Vypracování - Svoboda Jakub</title>
+    <!-- MathJax pro pěkný vykreslení matematických vzorců -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0a1128;
+            --bg-secondary: #1c2541;
+            --card-bg: #131b32;
+            --accent-blue: #00b4d8;
+            --accent-glow: #90e0ef;
+            --text-main: #edf2f4;
+            --text-muted: #8d99ae;
+            --border-color: #1e293b;
+            --highlight: #3a86ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 8px;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+
+        .header-info span strong {
+            color: var(--text-main);
+        }
+
+        .section-title {
+            color: var(--accent-glow);
+            font-size: 1.3rem;
+            margin: 30px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .task-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .task-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .task-header {
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-assignment {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #d1d5db;
+        }
+
+        .solution-step {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 2px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: rgba(0, 180, 216, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .text-answer {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #4cc9f0;
+        }
+
+        .note-card {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #fca5a5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px 8px; }
+            .task-card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Vypracování: Předepsaná práce z matematiky 1</h1>
+        <div class="header-info">
+            <span><strong>Předmět:</strong> Matematika</span>
+            <span><strong>Ročník:</strong> 1. ročník</span>
+            <span><strong>Téma:</strong> Zlomky, Dělitelnost, Úměrnost, Oblouková míra</span>
+        </div>
+    </header>
+
+    <!-- I. ZLOMKY -->
+    <div class="section-title">I. Zlomky</div>
+
+    <!-- Příklad 1 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 1</div>
+        <div class="task-assignment">
+            Vypočtěte a výsledek vyjádřete ve tvaru zlomku: <br>
+            $$\frac{1}{4} - \left[ \frac{2}{6} - 2\frac{2}{3} + \left(\frac{1}{2}\right)^2 \right]$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Smíšené číslo převodu na zlomek a umocním závorku: \(2\frac{2}{3} = \frac{8}{3}\), \(\left(\frac{1}{2}\right)^2 = \frac{1}{4}\).</p>
+            <p>2. Zjednoduším zlomky v hranaté závorce: \(\frac{2}{6} = \frac{1}{3}\).</p>
+            <p>3. Spočítám výraz uvnitř hranaté závorky (společný jmenovatel je 12):</p>
+            $$\left[ \frac{1}{3} - \frac{8}{3} + \frac{1}{4} \right] = \left[ -\frac{7}{3} + \frac{1}{4} \right] = \left[ \frac{-28 + 3}{12} \right] = -\frac{25}{12}$$
+            <p>4. Odečtu výsledek závorky od prvního zlomku:</p>
+            $$\frac{1}{4} - \left( -\frac{25}{12} \right) = \frac{1}{4} + \frac{25}{12} = \frac{3 + 25}{12} = \frac{28}{12}$$
+            <p>5. Krátím číslem 4:</p>
+            $$\frac{28}{12} = \frac{7}{3}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{\frac{7}{3}}\)
+        </div>
+    </div>
+
+    <!-- Příklad 2 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 2</div>
+        <div class="task-assignment">
+            Vypočtěte: <br>
+            $$\left(-\frac{3}{2}\right)^3 - \left[ \frac{3}{4} \cdot \frac{5}{(-6)} - \sqrt{\frac{1}{4}} \cdot \frac{2}{\sqrt{36}} \cdot 3 \right]$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Umocním a odmocním jednotlivé členy:</p>
+            $$\left(-\frac{3}{2}\right)^3 = -\frac{27}{8}$$
+            $$\sqrt{\frac{1}{4}} = \frac{1}{2}, \quad \sqrt{36} = 6$$
+            <p>2. Spočítám násobení v hranaté závorce:</p>
+            $$\frac{3}{4} \cdot \frac{5}{-6} = -\frac{15}{24} = -\frac{5}{8}$$
+            $$\frac{1}{2} \cdot \frac{2}{6} \cdot 3 = \frac{6}{12} = \frac{1}{2}$$
+            <p>3. Upravím výraz v hranaté závorce:</p>
+            $$\left[ -\frac{5}{8} - \frac{1}{2} \right] = \left[ -\frac{5}{8} - \frac{4}{8} \right] = -\frac{9}{8}$$
+            <p>4. Dosažení do celkového výrazu:</p>
+            $$-\frac{27}{8} - \left( -\frac{9}{8} \right) = -\frac{27}{8} + \frac{9}{8} = -\frac{18}{8} = -\frac{9}{4}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{-\frac{9}{4}}\)
+        </div>
+    </div>
+
+    <!-- Příklad 3 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 3</div>
+        <div class="task-assignment">
+            Vypočtěte: <br>
+            $$\frac{1}{2} + \frac{1}{3} \cdot \left( \frac{2}{5} - \frac{3}{4} \right)$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Nejdříve vyřeším závorku (společný jmenovatel 20):</p>
+            $$\frac{2}{5} - \frac{3}{4} = \frac{8 - 15}{20} = -\frac{7}{20}$$
+            <p>2. Vynásobím zlomkem před závorkou:</p>
+            $$\frac{1}{3} \cdot \left( -\frac{7}{20} \right) = -\frac{7}{60}$$
+            <p>3. Přičtu k prvního zlomku (společný jmenovatel 60):</p>
+            $$\frac{1}{2} - \frac{7}{60} = \frac{30 - 7}{60} = \frac{23}{60}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{\frac{23}{60}}\)
+        </div>
+    </div>
+
+    <!-- Příklad 4 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 4</div>
+        <div class="task-assignment">
+            Vypočtěte: <br>
+            $$\left( \frac{1}{2} + \frac{1}{3} \right) \cdot \frac{2}{5} - \frac{3}{4}$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Sečtu zlomky v závorce:</p>
+            $$\frac{1}{2} + \frac{1}{3} = \frac{3 + 2}{6} = \frac{5}{6}$$
+            <p>2. Vynásobím zlomkem \(\frac{2}{5}\):</p>
+            $$\frac{5}{6} \cdot \frac{2}{5} = \frac{10}{30} = \frac{1}{3}$$
+            <p>3. Odečtu \(\frac{3}{4}\) (společný jmenovatel 12):</p>
+            $$\frac{1}{3} - \frac{3}{4} = \frac{4 - 9}{12} = -\frac{5}{12}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{-\frac{5}{12}}\)
+        </div>
+    </div>
+
+    <!-- Příklad 5 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 5</div>
+        <div class="task-assignment">
+            Vypočtěte složený zlomek: <br>
+            $$\frac{\frac{3}{8} + \frac{1}{4}}{\frac{3}{5} - \frac{4}{15}}$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Upravím čitatele:</p>
+            $$\frac{3}{8} + \frac{1}{4} = \frac{3 + 2}{8} = \frac{5}{8}$$
+            <p>2. Upravím jmenovatele:</p>
+            $$\frac{3}{5} - \frac{4}{15} = \frac{9 - 4}{15} = \frac{5}{15} = \frac{1}{3}$$
+            <p>3. Vydělím čitatele jmenovatelem (násobení převráceným zlomkem):</p>
+            $$\frac{\frac{5}{8}}{\frac{1}{3}} = \frac{5}{8} \cdot \frac{3}{1} = \frac{15}{8}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{\frac{15}{8}}\)
+        </div>
+    </div>
+
+    <!-- Příklad 6 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 6</div>
+        <div class="task-assignment">
+            Vypočtěte složený zlomek: <br>
+            $$\frac{\left(\frac{3}{7} - 1\frac{1}{2}\right) : \frac{3}{8}}{\left(\frac{2}{3}\right)^2 \cdot \left(-\frac{1}{7}\right)}$$
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Čitatel: upravím závorku \(\frac{3}{7} - \frac{3}{2} = \frac{6 - 21}{14} = -\frac{15}{14}\).</p>
+            <p>2. Čitatel: vydělím zlomkem \(\frac{3}{8}\):</p>
+            $$-\frac{15}{14} \cdot \frac{8}{3} = -\frac{5 \cdot 4}{7 \cdot 1} = -\frac{20}{7}$$
+            <p>3. Jmenovatel: umocním a vynásobím:</p>
+            $$\left(\frac{2}{3}\right)^2 \cdot \left(-\frac{1}{7}\right) = \frac{4}{9} \cdot \left(-\frac{1}{7}\right) = -\frac{4}{63}$$
+            <p>4. Celkový složený zlomek:</p>
+            $$\frac{-\frac{20}{7}}{-\frac{4}{63}} = \frac{20}{7} \cdot \frac{63}{4} = \frac{20}{4} \cdot \frac{63}{7} = 5 \cdot 9 = 45$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{45}\)
+        </div>
+    </div>
+
+    <!-- II. DĚLITELNOST -->
+    <div class="section-title">II. Dělitelnost</div>
+
+    <!-- Příklad 7 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 7</div>
+        <div class="task-assignment">
+            Kolik kusů másla uložíme do krabice s rozměry 4 dm, 2 dm, 1,8 dm, pokud má balení másla rozměry 8 cm, 5 cm, 3 cm?
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Převedu všechny rozměry na centimetry (cm):</p>
+            <ul>
+                <li>Krabice: \(a = 40\text{ cm}\), \(b = 20\text{ cm}\), \(c = 18\text{ cm}\)</li>
+                <li>Máslo: \(x = 8\text{ cm}\), \(y = 5\text{ cm}\), \(z = 3\text{ cm}\)</li>
+            </ul>
+            <p>2. Vypočítám objem krabice (\(V_1\)) a objem jednoho másla (\(V_2\)):</p>
+            $$V_1 = 40 \cdot 20 \cdot 18 = 14\,400\text{ cm}^3$$
+            $$V_2 = 8 \cdot 5 \cdot 3 = 120\text{ cm}^3$$
+            <p>3. Zjištění počtu kusů (\(n\)):</p>
+            $$n = \frac{V_1}{V_2} = \frac{14\,400}{120} = 120\text{ kusů}$$
+            <p><i>Ověření rozměrově: \(40:8 = 5\), \(20:5 = 4\), \(18:3 = 6\) \(\rightarrow 5 \cdot 4 \cdot 6 = 120\).</i></p>
+        </div>
+        <div class="text-answer">
+            Odpověď: Do krabice se vejde přesně 120 kusů másla.
+        </div>
+    </div>
+
+    <!-- Příklad 8 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 8</div>
+        <div class="task-assignment">
+            Na kurz zpěvu pro maximálně 200 účastníků se přihlásil jistý počet zpěváků a zpěvaček. Hlavní organizátor si všimnul, že by mohl účastníky seřadit přesně do dvanáctistupu, šestnáctistupu, nebo osmnáctistupu a nikdo by nepřebýval, ani nechyběl. Kolik účastníků se přihlásilo?
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Hledám nejmenší společný násobek čísel 12, 16 a 18, označený jako \(n(12, 16, 18)\).</p>
+            <p>2. Rozklad na prvočinitele:</p>
+            $$12 = 2^2 \cdot 3$$
+            $$16 = 2^4$$
+            $$18 = 2 \cdot 3^2$$
+            <p>3. Nejmenší společný násobek (vezmu nejvyšší mocniny prvočísel):</p>
+            $$n(12, 16, 18) = 2^4 \cdot 3^2 = 16 \cdot 9 = 144$$
+            <p>4. Jelikož je maximální kapacita 200 účastníků a další násobek \(144 \cdot 2 = 288\) přesahuje limit, vyhovuje pouze číslo 144.</p>
+        </div>
+        <div class="text-answer">
+            Odpověď: Na kurz zpěvu se přihlásilo 144 účastníků.
+        </div>
+    </div>
+
+    <!-- III. SLOVNÍ ÚLOHY -->
+    <div class="section-title">III. Slovní úlohy na přímou a nepřímou úměrnost, poměr a procenta</div>
+
+    <!-- Příklad 9 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 9</div>
+        <div class="task-assignment">
+            Karlovi je 13 let a Pavlovi 21 let. Za kolik let budou jejich věky v poměru 7:9?
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Počet let označím jako \(x\).</p>
+            <p>2. Sestavím rovnici z poměru věků za \(x\) let:</p>
+            $$\frac{13 + x}{21 + x} = \frac{7}{9}$$
+            <p>3. Vynásobím obě strany jmenovateli:</p>
+            $$9 \cdot (13 + x) = 7 \cdot (21 + x)$$
+            $$117 + 9x = 147 + 7x$$
+            <p>4. Vyřeším rovnici pro \(x\):</p>
+            $$9x - 7x = 147 - 117$$
+            $$2x = 30 \implies x = 15$$
+        </div>
+        <div class="text-answer">
+            Odpověď: Jejich věky budou v poměru 7:9 za 15 let.
+        </div>
+    </div>
+
+    <!-- Příklad 10 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 10</div>
+        <div class="task-assignment">
+            Šest krejčí ušije 5 obleků za 3 dny. Za jak dlouho 4 krejčí ušijí 8 obleků?
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Použiji trojčlenku / úměrnost pro složený pravidlo 3:</p>
+            <ul>
+                <li>6 krejčích ... 5 obleků ... 3 dny</li>
+                <li>4 krejčí ... 8 obleků ... \(x\) dní</li>
+            </ul>
+            <p>2. Sestavím výpočet:</p>
+            <ul>
+                <li>Více obleků = více času (přímá úměrnost \(\rightarrow \frac{8}{5}\))</li>
+                <li>Méně krejčích = více času (nepřímá úměrnost \(\rightarrow \frac{6}{4}\))</li>
+            </ul>
+            $$x = 3 \cdot \frac{8}{5} \cdot \frac{6}{4}$$
+            $$x = 3 \cdot \frac{8 \cdot 6}{20} = 3 \cdot \frac{48}{20} = 3 \cdot 2,4 = 7,2\text{ dne}$$
+        </div>
+        <div class="text-answer">
+            Odpověď: Štyři krejčí ušijí 8 obleků za 7,2 dne (tedy za 7 dní a 4,8 hodiny).
+        </div>
+    </div>
+
+    <!-- Příklad 11 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 11</div>
+        <div class="task-assignment">
+            Lanovka převeze za 20 minut 640 turistů. Kolik turistů převeze za 2,5 hodiny?
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Převedu čas na stejné jednotky (minuty):</p>
+            $$2,5\text{ hodiny} = 2,5 \cdot 60 = 150\text{ minut}$$
+            <p>2. Jedná se o přímou úměrnost (čím více času, tím více turistů):</p>
+            $$\frac{x}{640} = \frac{150}{20}$$
+            <p>3. Výpočet:</p>
+            $$x = 640 \cdot \frac{150}{20} = 640 \cdot 7,5 = 4\,800\text{ turistů}$$
+        </div>
+        <div class="text-answer">
+            Odpověď: Lanovka převeze za 2,5 hodiny celkem 4 800 turistů.
+        </div>
+    </div>
+
+    <!-- IV. OBLOUKOVÁ MÍRA -->
+    <div class="section-title">IV. Oblouková míra</div>
+
+    <!-- Příklad 12 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 12</div>
+        <div class="task-assignment">
+            Vyjádřete součet \(\frac{2}{3}\pi + \frac{3}{5}\pi\) ve stupních.
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Sečtu radiány:</p>
+            $$\frac{2}{3}\pi + \frac{3}{5}\pi = \frac{10 + 9}{15}\pi = \frac{19}{15}\pi\text{ rad}$$
+            <p>2. Převedu radiány na stupně dosazením \(\pi = 180^\circ\):</p>
+            $$\alpha = \frac{19}{15} \cdot 180^\circ = 19 \cdot 12^\circ = 228^\circ$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{228^\circ}\)
+        </div>
+    </div>
+
+    <!-- Příklad 13 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 13</div>
+        <div class="task-assignment">
+            Vyjádřete orientovaný úhel \(-888^\circ\) pomocí základní velikosti a periody.
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. K zápornému úhlu přičítám násobky plného úhlu \(360^\circ\), dokud nezískám kladný úhel v rozmezí \(0^\circ\) až \(360^\circ\):</p>
+            $$-888^\circ + 3 \cdot 360^\circ = -888^\circ + 1080^\circ = 192^\circ$$
+            <p>2. Zápis s periodou:</p>
+            $$-888^\circ = 192^\circ - 3 \cdot 360^\circ$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{192^\circ - 3 \cdot 360^\circ}\) (základní velikost je \(192^\circ\))
+        </div>
+    </div>
+
+    <!-- Příklad 14 -->
+    <div class="task-card">
+        <div class="task-header">Příklad 14</div>
+        <div class="task-assignment">
+            Vyjádřete orientovaný úhel \(-100\text{ rad}\) pomocí základní velikosti a periody.
+        </div>
+        <div class="solution-step">
+            <strong>Postup:</strong>
+            <p>1. Perioda v radiánech je \(2\pi \approx 6,283185\text{ rad}\).</p>
+            <p>2. Zjistím počet period dělením:</p>
+            $$\frac{100}{2\pi} = \frac{50}{\pi} \approx 15,915$$
+            <p>3. Přičtu \(16 \cdot 2\pi = 32\pi\) radiánů k úhlu \(-100\):</p>
+            $$\alpha = -100 + 32\pi \approx -100 + 100,53096 = 0,53096\text{ rad}$$
+            <p>4. Zápis tvaru základní velikosti a periody:</p>
+            $$-100\text{ rad} = (32\pi - 100) - 16 \cdot 2\pi \approx 0,531 - 16 \cdot 2\pi\text{ rad}$$
+        </div>
+        <div class="result-box">
+            Výsledek: \(\mathbf{\approx 0,531 - 16 \cdot 2\pi\text{ rad}}\) (základní velikost je přibližně \(0,531\text{ rad}\))
+        </div>
+    </div>
+
+    <footer>
+        Vypracováno pro předepsanou práci z matematiky 1
+    </footer>
+
+</div>
+
+</body>
+</html>
